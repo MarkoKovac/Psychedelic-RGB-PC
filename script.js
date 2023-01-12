@@ -11,7 +11,7 @@ function spritePositionToImgPosition(row, col) {
 var canvas = document.querySelector('canvas');
 var context = canvas.getContext('2d');
 
-var spriteSheetURL = 'sprite3.png';
+var spriteSheetURL = 'sprite.png';
 
 var img = new Image();
 img.src = spriteSheetURL;
@@ -42,3 +42,18 @@ function animate() {
 img.onload = function() {
     setInterval(animate, 120);
 };
+
+function changeColor() {
+    let maxVal = 0xFFFFFF;
+    let randomNumber = Math.floor(Math.random() * maxVal).toString(16);
+    let randColor = randomNumber.padStart(6, 0);
+
+    console.log(randColor);
+
+    var elem = document.getElementById("ekran");
+    elem.style.backgroundColor = '#' + randColor;
+
+    var elem2 = document.getElementById("klik");
+    elem2.style.backgroundColor = '#' + randColor;
+    elem2.style.boxShadow = "0 0 1px 1px #" + randColor;
+}
